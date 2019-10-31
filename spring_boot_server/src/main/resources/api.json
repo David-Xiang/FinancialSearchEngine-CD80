@@ -1,0 +1,192 @@
+{
+    "page": 2,
+    "keywords": "economics",
+    "researchers": [
+    {
+        "id": 2110854920,
+        "name":"Jamie Reilly",
+        "homePageUrl": "https://cph.temple.edu/commsci/faculty/jamie-reilly",
+        "imageUrl": "https://cph.temple.edu/sites/chpsw/files/styles/200wide/public/faculty/jamiereilly2_0.jpg?itok=OdOqtxJN",
+        "field": [
+            "memory disorders",
+            "language comprehension",
+            "treatment for progressive language impairment",
+            "neurolinguistics",
+            "language",
+            "structural and functional neuroimaging",
+            "eyetracking and pupillometry",
+            "neuroscience",
+            "psychology"
+        ],
+        "introduction": "temple_university`Explore Temple's Schools and Colleges`Learn more about Temple College of Public Health programs`Faculty Directory`Jamie Reilly",
+        "papers":[
+            {
+                "id": 15702,
+                "name": "Organometallic 1.2 Shift Type Migration Reactions",
+                "venue": "",
+                "date": 2003,
+                "url": "https://link.springer.com/chapter/10.1007/978-94-010-9716-1_6",
+                "field": [
+                    "Photochemistry",
+                    "Ligand",
+                    "Chemistry"
+                ],
+                "authorCount": 2,
+                "authors": [
+                    {
+                        "name": "Heinz Berke",
+                        "institution": "University of Konstanz"
+                    },
+                    {
+                        "name": "Roald Hoffmann",
+                        "institution": "University of Konstanz"
+                    }
+                ],
+                "citationCount": 0,
+                "rank": 23997
+            },
+            {
+                "id": 947173,
+                "name": "Legal Education and the Reproduction of Hierarchy.",
+                "venue": "Journal of Legal Education",
+                "date": 2003,
+                "url": "https://eric.ed.gov/?id=EJ274696",
+                "field": [
+                    "Sociology",
+                    "Socialization",
+                    "Legal Education and the Reproduction of Hierarchy"
+                ],
+                "authorCount": 1,
+                "authors": [
+                    {
+                        "name": "Duncan Kennedy",
+                        "institution": ""
+                    }
+                ],
+                "citationCount": 76,
+                "rank": 21420
+            }
+        ]
+    },
+    {
+        "id": 2164688829,
+        "name":"Jason Mills",
+        "homePageUrl": "https://profiles.wustl.edu/en/persons/jason-mills",
+        "imageUrl": "https://profiles.wustl.edu/files-asset/24529241/mills_jason_304400_dbbs.jpg",
+        "field": [
+            "medicine",
+            "cell",
+            "sciences"
+        ],
+        "introduction": "washington_university_in_St_louis`Medical Research`Search Profiles`Profiles`M`3`Jason Mills",
+        "papers":[
+            {
+                "id": 15702,
+                "name": "Organometallic 1.2 Shift Type Migration Reactions",
+                "venue": "",
+                "date": 2003,
+                "url": "https://link.springer.com/chapter/10.1007/978-94-010-9716-1_6",
+                "field": [
+                    "Photochemistry",
+                    "Ligand",
+                    "Chemistry"
+                ],
+                "authorCount": 2,
+                "authors": [
+                    {
+                        "name": "Heinz Berke",
+                        "institution": "University of Konstanz"
+                    },
+                    {
+                        "name": "Roald Hoffmann",
+                        "institution": "University of Konstanz"
+                    }
+                ],
+                "citationCount": 0,
+                "rank": 23997
+            },
+            {
+                "id": 947173,
+                "name": "Legal Education and the Reproduction of Hierarchy.",
+                "venue": "Journal of Legal Education",
+                "date": 2003,
+                "url": "https://eric.ed.gov/?id=EJ274696",
+                "field": [
+                    "Sociology",
+                    "Socialization",
+                    "Legal Education and the Reproduction of Hierarchy"
+                ],
+                "authorCount": 1,
+                "authors": [
+                    {
+                        "name": "Duncan Kennedy",
+                        "institution": ""
+                    }
+                ],
+                "citationCount": 76,
+                "rank": 21420
+            }
+        ]
+    },
+    {
+        "id": 1979639021,
+        "name":"Jacques Baenziger",
+        "homePageUrl": "https://profiles.wustl.edu/en/persons/jacques-baenziger",
+        "imageUrl": "https://profiles.wustl.edu/assets/no-portrait-473c6d005990baa1f418d9c668dcd4ec.png",
+        "field": [
+            "medicine",
+            "sciences",
+            "biochemistry"
+        ],
+        "introduction": "washington_university_in_St_louis`Medical Research`Search Profiles`Profiles`M`3`Jason Mills",
+        "papers":[
+            {
+                "id": 15702,
+                "name": "Organometallic 1.2 Shift Type Migration Reactions",
+                "venue": "",
+                "date": 2003,
+                "url": "https://link.springer.com/chapter/10.1007/978-94-010-9716-1_6",
+                "field": [
+                    "Photochemistry",
+                    "Ligand",
+                    "Chemistry"
+                ],
+                "authorCount": 2,
+                "authors": [
+                    {
+                        "name": "Heinz Berke",
+                        "institution": "University of Konstanz"
+                    },
+                    {
+                        "name": "Roald Hoffmann",
+                        "institution": "University of Konstanz"
+                    }
+                ],
+                "citationCount": 0,
+                "rank": 23997
+            },
+            {
+                "id": 947173,
+                "name": "Legal Education and the Reproduction of Hierarchy.",
+                "venue": "Journal of Legal Education",
+                "date": 2003,
+                "url": "https://eric.ed.gov/?id=EJ274696",
+                "field": [
+                    "Sociology",
+                    "Socialization",
+                    "Legal Education and the Reproduction of Hierarchy"
+                ],
+                "authorCount": 1,
+                "authors": [
+                    {
+                        "name": "Duncan Kennedy",
+                        "institution": ""
+                    }
+                ],
+                "citationCount": 76,
+                "rank": 21420
+            }
+        ]
+    }
+    ]
+}
