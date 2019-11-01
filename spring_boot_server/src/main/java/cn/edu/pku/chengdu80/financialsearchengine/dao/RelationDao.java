@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Repository
 public class RelationDao {
@@ -46,6 +48,6 @@ public class RelationDao {
         for (Relation r: twoOrderList){
             oneOrderList.add(r);
         }
-        return oneOrderList;
+        return oneOrderList.stream().filter(Objects::nonNull).collect(Collectors.toList());
     }
 }
