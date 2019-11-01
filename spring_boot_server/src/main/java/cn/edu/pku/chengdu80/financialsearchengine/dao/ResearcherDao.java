@@ -54,7 +54,7 @@ public class ResearcherDao {
             List<Long> paperIdList = jdbcTemplate.query(
             "select distinct(paper_id)\n" +
                     "from writes\n" +
-                    "where author_id = ? limit 20;",
+                    "where author_id = ?;",
                 (resultSet, i) -> resultSet.getLong("paper_id"),
                 id
             );
