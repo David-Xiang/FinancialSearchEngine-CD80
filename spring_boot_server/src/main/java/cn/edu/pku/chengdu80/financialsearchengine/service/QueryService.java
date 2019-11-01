@@ -16,6 +16,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,9 +47,6 @@ public class QueryService {
         ObjectMapper mapper = new ObjectMapper();
         try {
             idList = mapper.readValue(jsonStr, new TypeReference<List<Long>>(){});
-            if (idList.size() > 10) {
-                idList = idList.subList(0, 10);
-            }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return null;
@@ -57,12 +55,19 @@ public class QueryService {
         dataResponse.setKeywords(queryString);
         dataResponse.setPage(isName ? 2 : 1);
         dataResponse.setResearchers(idList.stream().map(aLong -> researcherDao.getResearcherById(aLong)).collect(Collectors.toList()));
+        List<Researcher> list = dataResponse.getResearchers();
+        if (isName && list.size() > 0 &&
+                !queryString.toLowerCase().equals(list.get(0).getName().toLowerCase())) { // 没有精确匹配结果
+            list.sort((o1, o2) -> o2.getTotalCitationCount() - o1.getTotalCitationCount());
+        }
         dataResponse.setRelations(
                 getTwoOrderRelationById(
-                        dataResponse.getResearchers().size() > 0 ?
-                                dataResponse.getResearchers().get(0).getId() : null
+                        list.size() > 0 ? list.get(0).getId() : null
                 )
         );
+        if (list.size() > 10) {
+            dataResponse.setResearchers(list.subList(0, 10));
+        }
         return dataResponse;
     }
 
