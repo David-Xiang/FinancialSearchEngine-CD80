@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Repository
@@ -61,7 +62,7 @@ public class ResearcherDao {
             if(paperIdList.size() > 0) {
                 researcher.setPapers(paperIdList.stream().map(
                         id1 -> paperDao.getPaperById(id1)
-                ).collect(Collectors.toList()));
+                ).filter(Objects::nonNull).collect(Collectors.toList()));
             }
         } catch (EmptyResultDataAccessException e) {
             researcher.setPapers(new ArrayList<>());
