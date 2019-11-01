@@ -53,6 +53,12 @@ public class QueryService {
         dataResponse.setKeywords(queryString);
         dataResponse.setPage(isName ? 2 : 1);
         dataResponse.setResearchers(idList.stream().map(aLong -> researcherDao.getResearcherById(aLong)).collect(Collectors.toList()));
+        dataResponse.setRelations(
+                getTwoOrderRelationById(
+                        dataResponse.getResearchers().size() > 0 ?
+                                dataResponse.getResearchers().get(0).getId() : null
+                )
+        );
         return dataResponse;
     }
 

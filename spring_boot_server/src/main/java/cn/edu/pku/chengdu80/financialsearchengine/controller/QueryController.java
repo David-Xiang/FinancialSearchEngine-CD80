@@ -7,10 +7,7 @@ import cn.edu.pku.chengdu80.financialsearchengine.service.NameService;
 import cn.edu.pku.chengdu80.financialsearchengine.service.QueryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -46,6 +43,18 @@ public class QueryController {
     public Paper paperQuery(@RequestBody StringParam param) {
         // query paper by id
         return queryService.getPaperById(Long.parseLong(param.content));
+    }
+
+    @PostMapping("/mock")
+    @ResponseBody
+    public DataResponse mockPostQuery(@RequestBody StringParam param) {
+        return mockService.getQueryRandomQueryResult(param.content);
+    }
+
+    @GetMapping("/mock")
+    @ResponseBody
+    public DataResponse mockGetQuery() {
+        return mockService.getQueryRandomQueryResult("");
     }
 
     @PostMapping("/researcher")

@@ -2,6 +2,7 @@ package cn.edu.pku.chengdu80.financialsearchengine.dao;
 
 import cn.edu.pku.chengdu80.financialsearchengine.entity.Relation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +18,13 @@ public class RelationDao {
     public List<Relation> getTwoOrderRelationById(Long id) {
         String uid_sql = "select unique_id from has_id where id = ? limit 1";
         Long [] ids = new Long[] {id};
-        int uid = jdbcTemplate.queryForObject(uid_sql, ids, Integer.class);
+        int uid;
+        try {
+            uid = jdbcTemplate.queryForObject(uid_sql, ids, Integer.class);
+        } catch (EmptyResultDataAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
 
         List<Relation> oneOrderList = jdbcTemplate.query(
             "select from_id, to_id, ur1.name as from_name, ur2.name as to_name, count\n" +

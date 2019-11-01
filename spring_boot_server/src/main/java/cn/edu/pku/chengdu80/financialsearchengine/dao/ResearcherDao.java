@@ -25,7 +25,7 @@ public class ResearcherDao {
         Researcher researcher = null;
         try {
             researcher = jdbcTemplate.queryForObject(
-            "select author_id, name, webpage, anchor_txt, image_url, institution\n" +
+            "select author_id, name, webpage, anchor_txt, image_url, institution, citation_cnt, paper_cnt\n" +
                     "from researcher\n" +
                     "where author_id = ?\n" +
                     "limit 1;",

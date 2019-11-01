@@ -9,4 +9,5 @@ public class DataResponse {
     public int page;
     public String keywords;
     public List<Researcher> researchers;
+    public List<Relation> relations;
 }

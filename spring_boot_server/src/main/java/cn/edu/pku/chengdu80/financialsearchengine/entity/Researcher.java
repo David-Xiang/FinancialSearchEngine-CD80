@@ -14,4 +14,6 @@ public class Researcher {
     public String introduction;
     public List<Paper> papers;
     public String institution;
+    public int totalCitationCount;
+    public int publicationCount;
 }

@@ -19,6 +19,8 @@ public class ResearcherRowMapper implements RowMapper<Researcher> {
         researcher.setImageUrl(rs.getString("image_url"));
         researcher.setInstitution(rs.getString("institution"));
         researcher.setIntroduction(rs.getString("anchor_txt"));
+        researcher.setPublicationCount(rs.getInt("paper_cnt"));
+        researcher.setTotalCitationCount(rs.getInt("citation_cnt"));
         return researcher;
     }
 }
