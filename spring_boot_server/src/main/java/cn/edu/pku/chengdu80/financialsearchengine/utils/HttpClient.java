@@ -4,6 +4,7 @@ import cn.edu.pku.chengdu80.financialsearchengine.entity.QueryParam;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.*;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 public class HttpClient {
@@ -31,6 +32,20 @@ public class HttpClient {
         //将请求头部和参数合成一个请求
         HttpEntity<String> requestEntity = new HttpEntity<>(msg, headers);
         //执行HTTP请求，将返回的结构使用String 类格式化（可设置为对应返回值格式的类）
+        ResponseEntity<String> response = client.exchange(url, method, requestEntity, String.class);
+
+        return response.getBody();
+    }
+
+    public static String sendGetRequest(String url, MultiValueMap<String, String> params,HttpHeaders headers){
+        RestTemplate client = new RestTemplate();
+
+        HttpMethod method = HttpMethod.GET;
+        // 以表单的方式提交
+        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        //将请求头部和参数合成一个请求
+        HttpEntity<MultiValueMap<String, String>> requestEntity = new HttpEntity<>(params, headers);
+        //执行HTTP请求，将返回的结构使用String 类格式化
         ResponseEntity<String> response = client.exchange(url, method, requestEntity, String.class);
 
         return response.getBody();

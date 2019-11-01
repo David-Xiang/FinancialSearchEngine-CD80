@@ -12,7 +12,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
+import org.springframework.util.LinkedMultiValueMap;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +39,8 @@ public class QueryService {
     }
 
     public DataResponse getHttpResponse(String queryString, boolean isName) {
+        String hello = HttpClient.sendGetRequest("http://127.0.0.1:5000/", new LinkedMultiValueMap<>(), new HttpHeaders());
+        System.out.println(hello);
         String jsonStr =  HttpClient.sendPostRequest("http://127.0.0.1:5000/query", queryString, isName);
         List<Long> idList = null;
         ObjectMapper mapper = new ObjectMapper();
