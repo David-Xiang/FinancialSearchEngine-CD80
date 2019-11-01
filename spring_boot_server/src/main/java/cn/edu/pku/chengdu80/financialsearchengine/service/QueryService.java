@@ -40,13 +40,14 @@ public class QueryService {
     }
 
     public DataResponse getHttpResponse(String queryString, boolean isName) {
-        String hello = HttpClient.sendGetRequest("http://127.0.0.1:5000/", new LinkedMultiValueMap<>(), new HttpHeaders());
-        System.out.println(hello);
         String jsonStr =  HttpClient.sendPostRequest("http://127.0.0.1:5000/query", queryString, isName);
         List<Long> idList = null;
         ObjectMapper mapper = new ObjectMapper();
         try {
             idList = mapper.readValue(jsonStr, new TypeReference<List<Long>>(){});
+            if (idList.size() > 10) {
+                idList = idList.subList(0, 10);
+            }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             return null;
@@ -65,9 +66,6 @@ public class QueryService {
                         list.size() > 0 ? list.get(0).getId() : null
                 )
         );
-        if (list.size() > 10) {
-            dataResponse.setResearchers(list.subList(0, 10));
-        }
         return dataResponse;
     }
 

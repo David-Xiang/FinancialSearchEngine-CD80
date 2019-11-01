@@ -32,23 +32,23 @@ public class HistoryService {
             "contract");
 
         abbrToFull = new HashMap<>();
-        abbrToFull.put("acc", "accounting");
-        abbrToFull.put("bus", "business");
-        abbrToFull.put("eco", "economy");
+        abbrToFull.put("accounting", "acc");
+        abbrToFull.put("business", "bus");
+        abbrToFull.put("economy", "eco");
         abbrToFull.put("market", "market");
-        abbrToFull.put("manage", "management");
-        abbrToFull.put("anal", "analysis");
+        abbrToFull.put("management", "manage");
+        abbrToFull.put("analysis", "anal");
         abbrToFull.put("fund", "fund");
         abbrToFull.put("asset", "asset");
-        abbrToFull.put("internation", "international");
-        abbrToFull.put("gov", "government");
-        abbrToFull.put("com", "commerce");
+        abbrToFull.put("international", "internation");
+        abbrToFull.put("government", "gov");
+        abbrToFull.put("commerce", "com");
         abbrToFull.put("law", "law");
-        abbrToFull.put("poli", "policy");
-        abbrToFull.put("fin", "finance");
+        abbrToFull.put("policy", "poli");
+        abbrToFull.put("finance", "fin");
         abbrToFull.put("risk", "risk");
         abbrToFull.put("bank", "bank");
-        abbrToFull.put("quant", "quantitative");
+        abbrToFull.put("quantitative", "quant");
         abbrToFull.put("contract", "contract");
 
         wordsFreq = new ArrayList<>();
@@ -58,10 +58,10 @@ public class HistoryService {
     }
 
     public void searchFor(String sentence) {
-        List<String> words = Arrays.asList(sentence.split(""));
-        for (String word: keyWords) {
+        List<String> words = Arrays.asList(sentence.split("\\s"));
+        for (String word: words) {
             wordsFreq = wordsFreq.stream().map(stringIntegerPair -> {
-                if (stringIntegerPair.first.contains(word.toLowerCase())){
+                if (word.toLowerCase().contains(abbrToFull.get(stringIntegerPair.first))){
                     return new Pair<>(stringIntegerPair.first, stringIntegerPair.second+1);
                 }
                 return stringIntegerPair;
@@ -70,7 +70,7 @@ public class HistoryService {
     }
 
     public List<String> getHitWords() {
-        wordsFreq.sort(Comparator.comparingInt(o -> o.second));
+        wordsFreq.sort((o1, o2) -> o2.second-o1.second);
         return wordsFreq.stream().map(stringIntegerPair -> stringIntegerPair.first.toUpperCase()).collect(Collectors.toList());
     }
 
